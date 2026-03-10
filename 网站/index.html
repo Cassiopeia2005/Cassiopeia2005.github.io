@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>商品展示小程序</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    /* 页面背景：背景图缩小一半 + 居中显示 */
+    body {
+      min-height: 100vh; /* 让body占满屏幕高度 */
+      background-image: url('海底捞.jpg'); /* 填入你的背景图片路径 */
+      background-repeat: no-repeat;
+      /* 核心修改：背景图尺寸改为原尺寸的50%，替代原来的cover */
+      background-size: 50%; 
+      background-position: center; /* 背景图仍居中显示 */
+      /* 内容垂直居中不变 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* 容器：限制最大宽度，居中 */
+    .container {
+      width: 100%;
+      max-width: 750px; /* 适配手机端宽度 */
+      margin: 0 auto;
+      padding: 15px;
+      /* 可选：给容器加半透明背景，让内容更清晰 */
+      /* background-color: rgba(255, 255, 255, 0.9); */
+      /* border-radius: 12px; */
+      /* padding: 20px; */
+    }
+
+    /* 标题样式：字号40px + 纯黑 + 居中 */
+    .page-title {
+      font-size: 40px; 
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #000; 
+      text-align: center;
+    }
+
+    /* 商品网格：2行3列 */
+    .goods-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px; /* 商品之间的间距 */
+    }
+
+    /* 单个商品卡片占位 */
+    .goods-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* 商品图片占位框 */
+    .goods-img {
+      width: 100%;
+      aspect-ratio: 1 / 1; /* 宽高比 1:1 */
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover; /* 商品图片仍铺满容器 */
+    }
+
+    /* 商品文字样式：纯黑 + 居中 + 不透明白色背景 */
+    .goods-text {
+      width: 100%;
+      height: 36px; 
+      line-height: 1.4;
+      font-size: 18px;
+      color: #000; 
+      overflow: hidden;
+      text-align: center;
+      /* 核心修改：添加不透明白色背景，隔绝背景图干扰 */
+      background-color: #ffffff;
+      /* 可选优化：加内边距让文字不贴边，更美观 */
+      padding: 4px 2px;
+      border-radius: 4px; /* 轻微圆角，和图片风格统一 */
+    }
+
+    /* 响应式：超小屏改为2列 */
+    @media (max-width: 480px) {
+      .goods-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 标题 -->
+    <div class="page-title">海底捞training 小红花积分兑换商城</div>
+
+    <!-- 6个商品位置 -->
+    <div class="goods-grid">
+      <!-- 商品1 -->
+      <div class="goods-item">
+        <div class="goods-img" style="background-image: url('保A卡.jpg');"></div>
+        <div class="goods-text">本月绩效保A卡-1000小红花</div>
+      </div>
+      <!-- 商品2 -->
+      <div class="goods-item">
+        <div class="goods-img" style="background-image: url('迟到卡.jpg');"></div>
+        <div class="goods-text">免死迟到卡-100小红花</div>
+      </div>
+      <!-- 商品3 -->
+      <div class="goods-item">
+        <div class="goods-img" style="background-image: url('外卖报销卡.jpg');"></div>
+        <div class="goods-text">外卖报销卡-200小红花</div>
+      </div>
+      <!-- 商品4 -->
+      <div class="goods-item">
+        <div class="goods-img" style="background-image: url('假期调休卡.jpg');"></div>
+        <div class="goods-text">假期调休卡-100小红花</div>
+      </div>
+      <!-- 商品5 -->
+      <div class="goods-item">
+        <div class="goods-img" style="background-image: url('车费报销卡.jpg');"></div>
+        <div class="goods-text">车费报销卡-50小红花</div>
+      </div>
+      <!-- 商品6 -->
+      <div class="goods-item">
+        <div class="goods-img" style="background-image: url('data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18h78v64H11z' fill='%23e0e0e0'/%3E%3Ccircle cx='50' cy='45' r='15' fill='%23bdbdbd'/%3E%3Cpath d='M11 82l25-25 15 15 25-25v25L36 82l-15-15-10 10z' fill='%239e9e9e'/%3E%3C/svg%3E');"></div>
+        <div class="goods-text"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
